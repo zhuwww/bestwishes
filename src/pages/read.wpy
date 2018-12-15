@@ -1,0 +1,214 @@
+<style lang="less" xmlns:wx="">
+  .userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    color: #fff;
+    line-height: 88rpx;
+    margin:170rpx 0;
+  }
+
+  .userinfo-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-nickname {
+    color: #aaa;
+  }
+  /**自定义**/
+  page{
+    padding: 0;
+    margin: 0;
+  }
+  .width-100{
+    width: 100%;
+  }
+  .container{
+    /*background-color: #77ccc7;*/
+    /*bg1*/
+    background: -webkit-linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); /* 标准的语法 */
+
+    /*bg2*/
+    /*background: -webkit-linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); !* Safari 5.1 - 6.0 *!*/
+    /*background: -o-linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); !* Opera 11.1 - 12.0 *!*/
+    /*background: -moz-linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); !* Firefox 3.6 - 15 *!*/
+    /*background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); !* 标准的语法 *!*/
+
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding:0 0.2rpx;
+    position: relative;
+  }
+
+</style>
+<template>
+  <view class="container">
+
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import { connect } from 'wepy-redux'
+  import Panel from '@/components/panel' // alias example
+  import Counter from 'counter' // alias example
+  import List from '../components/list' // aliasFields example
+  import moduleA from 'module-a' // aliasFields ignore module example
+  import Group from '../components/group'
+  import Toast from 'wepy-com-toast'
+  import testMixin from '../mixins/test'
+  import Popup from 'my-wpy-pop'
+
+  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
+
+  @connect({
+    num (state) {
+      return state.counter.num
+    },
+    asyncNum (state) {
+      return state.counter.asyncNum
+    },
+    sumNum (state) {
+      return state.counter.num + state.counter.asyncNum
+    }
+  })
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '祝福语录'
+    }
+    components = {
+      panel: Panel,
+      counter1: Counter,
+      counter2: Counter,
+      list: List,
+      group: Group,
+      toast: Toast,
+      Popup: Popup
+    }
+
+    mixins = [testMixin]
+
+    data = {
+      datas: {},  // 所有信息
+      datasArr: [],  // 未来几日天气数组
+      onlydata: {},  // 搜索城市信息
+      mov: '',
+      isShow: false,
+      time: null,
+      icon60: ''
+    }
+
+    computed = {
+      now () {
+        return +new Date()
+      }
+    }
+
+    methods = {
+      tap () {
+      },
+      seach() {
+        console.log(this.mov)
+        this.requestFun(this.mov)
+      },
+      bindTestInput(e) {
+        this.mov = e.detail.value
+      },
+      async openAlert () {
+        let res = await wepy.showModal({
+          content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
+          showCancel: false
+        })
+
+        if (res.confirm) {
+          console.log('用户点击确定')
+        }
+      }
+    }
+    requestFun (v) {
+      // const that = this
+      // wx.request({
+      //   url: 'https://www.tianqiapi.com/api/?version=v1&city=' + v,
+      //   data: {
+      //   },
+      //   header: {
+      //     'content-type': 'application/json' // 默认值
+      //   },
+      //   success (res) {
+      //     console.log('request fail1: ', res)
+      //     if (that.mov === '北京' || that.mov === '北京市') {
+      //       that.datas = res.data
+      //       that.datasArr = res.data.data
+      //       that.onlydata = res.data.data[0]
+      //       that.time = new Date().toLocaleTimeString()
+      //     } else {
+      //       if (res.data.city === '北京') {
+      //         console.log('请输入正确的城市')
+      //         wx.showToast({
+      //           title: '暂无数据',
+      //           icon: 'loading',
+      //           duration: 1500
+      //         })
+      //       } else {
+      //         that.datas = res.data
+      //         that.datasArr = res.data.data
+      //         that.onlydata = res.data.data[0]
+      //         that.time = new Date().toLocaleTimeString()
+      //       }
+      //     }
+      //     that.$apply()
+      //   },
+      //   fail (p) {
+      //     console.log('request fail22: ', p)
+      //   }
+      // })
+    }
+    onLoad() {
+      // const thats = this
+      // thats.mov = '北京'
+      // this.requestFun('北京')
+      // wx.getLocation({
+      //   success: res => {
+      //     console.log(res)
+      //     wx.request({
+      //       url: 'https://api.map.baidu.com/geocoder/v2/?ak=Ya2nSaqjT3vNrIgba1v4nfWzSxGdtgZD&location=' + res.latitude + ',' + res.longitude + '&output=json',
+      //       data: {},
+      //       dataType: 'jsonp',
+      //       callback: 'BMap._rd._cbk43398',
+      //       header: {
+      //         'content-type': 'application/json' // 默认值
+      //       },
+      //       success (res) {
+      //         console.log('request: ', res)
+      //         const obj = JSON.parse(res.data).result.addressComponent.city.replace('市', '')
+      //         console.log(obj)
+      //         thats.requestFun(obj)
+      //       },
+      //       fail (p) {
+      //         console.log('request fail: ', p)
+      //       }
+      //     })
+      //   },
+      //   fail: res => {
+      //     thats.mov = '北京'
+      //     this.requestFun('北京')
+      //     let reo = wepy.showModal({
+      //       content: '暂无授权，无法获取当前位置，稍后可到设置中更改',
+      //       showCancel: false
+      //     })
+      //     if (reo.confirm) {
+      //
+      //     }
+      //   }
+      // })
+    }
+  }
+</script>

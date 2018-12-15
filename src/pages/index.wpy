@@ -1,0 +1,74 @@
+<style lang="less" xmlns:wx="">
+  .userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    color: #fff;
+    line-height: 88rpx;
+    margin:170rpx 0;
+  }
+
+  .userinfo-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-nickname {
+    color: #aaa;
+  }
+  /**自定义**/
+  page{
+    padding: 0;
+    margin: 0;
+  }
+  .width-100{
+    width: 100%;
+  }
+  .container{
+
+  }
+
+</style>
+<template>
+  <view class="container">
+      <orderItem :orderList.sync="orderList" ></orderItem>
+    <repeat for="{{orderList}}">
+      <view>
+        {{item.title}}
+        <img  url="{{item.imgurl}}" />
+      </view>
+    </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import OrderItem from '../components/list' // aliasFields example
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '祝福大全'
+    }
+    components = {
+      orderItem: OrderItem
+    }
+    data = {
+      orderList: [{id: 4, title: '新年送祝福', imgurl: '../assets/images/cover/logo.jpg'}]
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+
+    }
+    requestFun (v) {
+
+    }
+    onLoad() {
+    }
+  }
+</script>

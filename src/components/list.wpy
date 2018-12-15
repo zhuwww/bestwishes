@@ -1,0 +1,39 @@
+<style lang="less">
+
+</style>
+<template>
+  <repeat for="{{orderList}}">
+    <view>
+       <button @tap="openAlert" size="mini">568988{{item.title}}</button>
+    </view>
+  </repeat>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class OrderItem extends wepy.component {
+    props = {
+      orderList: {
+        default: [],
+        flag: '',
+        orderNo: '',
+        list: []
+      }
+    }
+    methods = {
+      async openAlert () {
+        let res = await wepy.showModal({
+          content: 'ggg',
+          showCancel: false
+        })
+
+        if (res.confirm) {
+          console.log('用户点击确定')
+        }
+      }
+    }
+    onLoad () {
+      console.log(this.orderList)
+    }
+  }
+</script>
