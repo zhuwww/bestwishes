@@ -26,90 +26,96 @@
   .width-100{
     width: 100%;
   }
-  .container{
-    /*background-color: #77ccc7;*/
-    /*bg1*/
-    background: -webkit-linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); /* 标准的语法 */
-
-    /*bg2*/
-    /*background: -webkit-linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); !* Safari 5.1 - 6.0 *!*/
-    /*background: -o-linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); !* Opera 11.1 - 12.0 *!*/
-    /*background: -moz-linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); !* Firefox 3.6 - 15 *!*/
-    /*background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); !* 标准的语法 *!*/
-
+  .container {
+  }
+  .list_box{
     width: 100%;
-    height: 100%;
     box-sizing: border-box;
-    padding:0 0.2rpx;
-    position: relative;
+    padding: 10rpx;
+    .item_box{
+      width: 730rpx;
+      height:300rpx;
+      float: left;
+      margin-bottom: 16rpx;
+      font-size: 28rpx;
+      color: #000000;
+      -moz-box-shadow: 5rpx 5rpx 5rpx #ddd; /* 老的 Firefox */
+      box-shadow: 5rpx 5rpx 5rpx #ddd;
+      position: relative;
+    }
+    .item_box image{
+      width: 730rpx;
+      height:300rpx;
+      border-radius: 4px;
+    }
+    .item_box .text{
+      background-color:rgba(0,0,0,0.5);
+      width: 710rpx;
+      height:68rpx;
+      line-height: 60rpx;
+      padding-left: 20rpx;
+      position: absolute;
+      color: #FFFFFF;
+      bottom: 0;
+      left:0;
+      z-index: 99;
+      font-size: 32rpx;
+      letter-spacing:18rpx;
+    }
+    .item_box span{
+      animation:myfirst 5s linear 2s infinite alternate;
+    }
+    @keyframes myfirst
+    {
+      0%   {font-size: 28rpx;}
+      25%  {font-size: 38rpx;}
+      50%  {font-size: 28rpx;}
+      100% {font-size: 38rpx;}
+    }
+
   }
 
 </style>
 <template>
   <view class="container">
-
+    <viem class="list_box">
+      <repeat for="{{orderList}}" key="index" index="index" item="item">
+        <view class="item_box"  @tap="toDetails({{item.id}})">
+          <image  src="{{item.imgurl}}" />
+          <view class="text">点击{{item.title}}</view>
+        </view>
+      </repeat>
+    </viem>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
-  import { connect } from 'wepy-redux'
-  import Panel from '@/components/panel' // alias example
-  import Counter from 'counter' // alias example
   import List from '../components/list' // aliasFields example
-  import moduleA from 'module-a' // aliasFields ignore module example
-  import Group from '../components/group'
   import Toast from 'wepy-com-toast'
-  import testMixin from '../mixins/test'
   import Popup from 'my-wpy-pop'
-
-  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
-
-  @connect({
-    num (state) {
-      return state.counter.num
-    },
-    asyncNum (state) {
-      return state.counter.asyncNum
-    },
-    sumNum (state) {
-      return state.counter.num + state.counter.asyncNum
-    }
-  })
 
   export default class Index extends wepy.page {
     config = {
       navigationBarTitleText: '祝福语录'
     }
     components = {
-      panel: Panel,
-      counter1: Counter,
-      counter2: Counter,
       list: List,
-      group: Group,
       toast: Toast,
       Popup: Popup
     }
 
-    mixins = [testMixin]
-
     data = {
-      datas: {},  // 所有信息
-      datasArr: [],  // 未来几日天气数组
-      onlydata: {},  // 搜索城市信息
-      mov: '',
-      isShow: false,
-      time: null,
-      icon60: ''
+      orderList: [
+        {id: 4, title: '新年送祝福', imgurl: '../assets/images/flower/eight.gif'},
+        {id: 4, title: '新年送祝福', imgurl: '../assets/images/flower/eight.gif'},
+        {id: 4, title: '新年送祝福', imgurl: '../assets/images/flower/eight.gif'},
+        {id: 4, title: '新年送祝福', imgurl: '../assets/images/flower/eight.gif'},
+        {id: 4, title: '新年送祝福', imgurl: '../assets/images/flower/eight.gif'}
+      ]
     }
 
     computed = {
-      now () {
-        return +new Date()
-      }
     }
 
     methods = {
@@ -133,82 +139,12 @@
         }
       }
     }
-    requestFun (v) {
-      // const that = this
-      // wx.request({
-      //   url: 'https://www.tianqiapi.com/api/?version=v1&city=' + v,
-      //   data: {
-      //   },
-      //   header: {
-      //     'content-type': 'application/json' // 默认值
-      //   },
-      //   success (res) {
-      //     console.log('request fail1: ', res)
-      //     if (that.mov === '北京' || that.mov === '北京市') {
-      //       that.datas = res.data
-      //       that.datasArr = res.data.data
-      //       that.onlydata = res.data.data[0]
-      //       that.time = new Date().toLocaleTimeString()
-      //     } else {
-      //       if (res.data.city === '北京') {
-      //         console.log('请输入正确的城市')
-      //         wx.showToast({
-      //           title: '暂无数据',
-      //           icon: 'loading',
-      //           duration: 1500
-      //         })
-      //       } else {
-      //         that.datas = res.data
-      //         that.datasArr = res.data.data
-      //         that.onlydata = res.data.data[0]
-      //         that.time = new Date().toLocaleTimeString()
-      //       }
-      //     }
-      //     that.$apply()
-      //   },
-      //   fail (p) {
-      //     console.log('request fail22: ', p)
-      //   }
-      // })
+    toDetails (item) {
+      console.log(item)
+      this.$navigate('./readdetails?id=' + item.currentTarget.dataset.wpytodetailsA)
     }
     onLoad() {
-      // const thats = this
-      // thats.mov = '北京'
-      // this.requestFun('北京')
-      // wx.getLocation({
-      //   success: res => {
-      //     console.log(res)
-      //     wx.request({
-      //       url: 'https://api.map.baidu.com/geocoder/v2/?ak=Ya2nSaqjT3vNrIgba1v4nfWzSxGdtgZD&location=' + res.latitude + ',' + res.longitude + '&output=json',
-      //       data: {},
-      //       dataType: 'jsonp',
-      //       callback: 'BMap._rd._cbk43398',
-      //       header: {
-      //         'content-type': 'application/json' // 默认值
-      //       },
-      //       success (res) {
-      //         console.log('request: ', res)
-      //         const obj = JSON.parse(res.data).result.addressComponent.city.replace('市', '')
-      //         console.log(obj)
-      //         thats.requestFun(obj)
-      //       },
-      //       fail (p) {
-      //         console.log('request fail: ', p)
-      //       }
-      //     })
-      //   },
-      //   fail: res => {
-      //     thats.mov = '北京'
-      //     this.requestFun('北京')
-      //     let reo = wepy.showModal({
-      //       content: '暂无授权，无法获取当前位置，稍后可到设置中更改',
-      //       showCancel: false
-      //     })
-      //     if (reo.confirm) {
-      //
-      //     }
-      //   }
-      // })
+
     }
   }
 </script>

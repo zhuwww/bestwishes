@@ -2,23 +2,19 @@
 
 </style>
 <template>
-  <repeat for="{{orderList}}">
+  <!--<repeat for="{{orderList}}">-->
     <view>
-       <button @tap="openAlert" size="mini">568988{{item.title}}</button>
+      {{item}}
+       <!--<button @tap="openAlert" size="mini">568988{{item}}</button>-->
     </view>
-  </repeat>
+  <!--</repeat>-->
 </template>
 <script>
   import wepy from 'wepy'
 
   export default class OrderItem extends wepy.component {
     props = {
-      orderList: {
-        default: [],
-        flag: '',
-        orderNo: '',
-        list: []
-      }
+      item: ''
     }
     methods = {
       async openAlert () {
@@ -33,7 +29,7 @@
       }
     }
     onLoad () {
-      console.log(this.orderList)
+      console.log(this.item)
     }
   }
 </script>

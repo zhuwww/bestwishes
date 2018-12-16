@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5f074c0-df45-4991-9d87-d8f73712c1cc" name="Default Changelist" comment="" />
+    <list default="true" id="f5f074c0-df45-4991-9d87-d8f73712c1cc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/cover/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/list.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/list.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/read.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/read.wpy" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,44 +98,49 @@
     <session id="-1660136738">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.82" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="7" />
+          <entry key="ESLintLanguageService" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="wpy" value="631" />
+          <entry key="json" value="76" />
+          <entry key="wpy" value="2289" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Vue.js" value="631" />
+          <entry key="JSON" value="76" />
+          <entry key="Vue.js" value="2289" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
           <entry key="js" value="1" />
-          <entry key="wpy" value="13" />
+          <entry key="json" value="2" />
+          <entry key="wpy" value="26" />
           <entry key="wxss" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
+          <entry key="JSON" value="2" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Vue.js" value="13" />
+          <entry key="Vue.js" value="26" />
         </counts>
       </usages-collector>
     </session>
@@ -136,22 +148,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/list.wpy">
+        <entry file="file://$PROJECT_DIR$/src/pages/read.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7">
-              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="8" selection-end-column="11" />
+            <state relative-caret-position="493">
+              <caret line="110" column="74" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="74" />
+              <folding>
+                <element signature="e#44#199#0" />
+                <element signature="e#220#286#0" />
+                <element signature="e#309#331#0" />
+                <element signature="e#399#421#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/index.wpy">
+        <entry file="file://$PROJECT_DIR$/src/pages/readdetails.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-              <folding>
-                <element signature="e#1552#1575#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-655">
+              <caret line="65" column="26" lean-forward="true" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -189,11 +204,14 @@
         <option value="$PROJECT_DIR$/src/assets/font/demo_fontclass.html" />
         <option value="$PROJECT_DIR$/src/pages/list.wpy" />
         <option value="$PROJECT_DIR$/wepy.config.js" />
-        <option value="$PROJECT_DIR$/src/app.wpy" />
         <option value="$PROJECT_DIR$/src/pages/wishesdetails.wpy" />
-        <option value="$PROJECT_DIR$/src/pages/read.wpy" />
         <option value="$PROJECT_DIR$/src/components/list.wpy" />
+        <option value="$PROJECT_DIR$/src/assets/data/form.json" />
+        <option value="$PROJECT_DIR$/src/app.wpy" />
         <option value="$PROJECT_DIR$/src/pages/index.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/read.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/indexdetails.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/readdetails.wpy" />
       </list>
     </option>
   </component>
@@ -254,13 +272,6 @@
               <item name="bestwishes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bestwishes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bestwishes" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bestwishes" type="b2602c69:ProjectViewProjectNode" />
@@ -344,18 +355,19 @@
       <workItem from="1544841248615" duration="2411000" />
       <workItem from="1544844157676" duration="292000" />
       <workItem from="1544844455691" duration="1263000" />
-      <workItem from="1544846877945" duration="4562000" />
+      <workItem from="1544846877945" duration="16102000" />
+      <workItem from="1544934501548" duration="8707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100322000" />
+    <option name="totallyTimeSpent" value="120569000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19441517" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19441517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -371,7 +383,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50105375" side_tool="true" weight="0.35287732" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32899022" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.330076" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49894625" weight="0.3843648" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -387,6 +399,42 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -512,13 +560,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/wishesdetails.wpy" />
-    <entry file="file://$PROJECT_DIR$/src/app.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/components/wepy-list.wxss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -530,43 +571,63 @@
     <entry file="file://$PROJECT_DIR$/dist/components/list.wxss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/read.wpy">
+    <entry file="file://$PROJECT_DIR$/src/components/list.wpy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="213" column="9" selection-start-line="213" selection-start-column="9" selection-end-line="213" selection-end-column="9" />
-          <folding>
-            <element signature="e#44#199#0" />
-            <element signature="e#220#286#0" />
-            <element signature="e#309#331#0" />
-            <element signature="e#350#386#0" />
-            <element signature="e#399#421#0" />
-            <element signature="e#434#1357#0" />
-            <element signature="e#1432#1455#0" expanded="true" />
-            <element signature="e#1737#1776#0" expanded="true" />
-            <element signature="e#2308#2462#0" />
-            <element signature="e#2501#2669#0" />
-            <element signature="e#2686#2743#0" />
-            <element signature="e#2759#3187#0" />
-            <element signature="e#3207#4435#0" />
-            <element signature="e#4449#5722#0" />
-          </folding>
+        <state relative-caret-position="439">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/list.wpy">
+    <entry file="file://$PROJECT_DIR$/src/assets/data/form.json" />
+    <entry file="file://$PROJECT_DIR$/form.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="8" selection-end-column="11" />
+        <state relative-caret-position="135">
+          <caret line="5" column="12" lean-forward="true" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+        <state relative-caret-position="432">
+          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/indexdetails.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="135" column="16" lean-forward="true" selection-start-line="135" selection-start-column="16" selection-end-line="135" selection-end-column="16" />
           <folding>
-            <element signature="e#1552#1575#0" expanded="true" />
+            <element signature="n#style#0;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#0;n#repeat#0;n#view#0;n#repeat#0;n#viem#0;n#view#0;n#template#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/read.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="110" column="74" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="74" />
+          <folding>
+            <element signature="e#44#199#0" />
+            <element signature="e#220#286#0" />
+            <element signature="e#309#331#0" />
+            <element signature="e#399#421#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/readdetails.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-655">
+          <caret line="65" column="26" lean-forward="true" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
         </state>
       </provider>
     </entry>

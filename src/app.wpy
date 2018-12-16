@@ -25,11 +25,13 @@ export default class extends wepy.app {
   config = {
     pages: [
       'pages/index',
-      'pages/read'
+      'pages/read',
+      'pages/indexdetails',
+      'pages/readdetails'
     ],
     window: {
       backgroundTextStyle: 'black',
-      navigationBarBackgroundColor: '#000000',
+      navigationBarBackgroundColor: '#363841',
       navigationBarTitleText: '祝福大全',
       navigationBarTextStyle: 'white'
     },

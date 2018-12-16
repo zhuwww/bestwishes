@@ -23,23 +23,68 @@
     padding: 0;
     margin: 0;
   }
+  image{
+    padding: 0;margin: 0;
+  }
   .width-100{
     width: 100%;
   }
   .container{
 
   }
+  .list_box{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20rpx;
+    .item_box{
+      width: 344rpx;
+      height:250rpx;
+      float: left;
+      margin-bottom: 15rpx;
+      font-size: 28rpx;
+      color: #000000;
+    }
+    .item_box:nth-child(2n){
+      margin-left: 22rpx;
+    }
+    .item_box image{
+      width: 350rpx;
+      height:200rpx;
+      border-radius: 4px;
+    }
+    .item_box .text{
+      padding-left: 20rpx;
+      letter-spacing:5rpx;
+    }
+    .item_box span{
+      /*animation:myfirst 5s linear 2s infinite alternate;*/
+    }
+    @keyframes myfirst
+    {
+      0%   {font-size: 28rpx;}
+      25%  {font-size: 32rpx;}
+      50%  {font-size: 28rpx;}
+      100% {font-size: 30rpx;}
+    }
+
+  }
 
 </style>
 <template>
   <view class="container">
-      <orderItem :orderList.sync="orderList" ></orderItem>
-    <repeat for="{{orderList}}">
-      <view>
-        {{item.title}}
-        <img  url="{{item.imgurl}}" />
-      </view>
-    </repeat>
+    <orderItem item="tirrtle" ></orderItem>
+
+    <viem class="list_box">
+      <repeat for="{{orderList}}" key="index" index="index" item="item">
+        <!--<navigator url="/pages/indexdetails?id={{item.id}}">-->
+          <view class="item_box" @tap="toDetails({{item.id}})">
+            <image  src="{{item.imgurl}}" />
+            <view class="text">点击<span>>></span>{{item.title}}</view>
+          </view>
+        <!--</navigator>-->
+      </repeat>
+    </viem>
+
   </view>
 </template>
 
@@ -55,7 +100,14 @@
       orderItem: OrderItem
     }
     data = {
-      orderList: [{id: 4, title: '新年送祝福', imgurl: '../assets/images/cover/logo.jpg'}]
+      tirrtle: '新年送祝福',
+      orderList: [
+        {id: 1, title: '新年送祝福', imgurl: '../assets/images/flower/nine.gif'},
+        {id: 2, title: '新年送祝福', imgurl: '../assets/images/flower/eight.gif'},
+        {id: 3, title: '新年送祝福', imgurl: '../assets/images/flower/nine.gif'},
+        {id: 4, title: '新年送祝福', imgurl: '../assets/images/flower/nine.gif'},
+        {id: 5, title: '新年送祝福', imgurl: '../assets/images/flower/nine.gif'}
+      ]
     }
 
     computed = {
@@ -64,6 +116,10 @@
 
     methods = {
 
+    }
+    toDetails (item) {
+      console.log(item)
+      this.$navigate('./indexdetails?id=' + item.currentTarget.dataset.wpytodetailsA)
     }
     requestFun (v) {
 

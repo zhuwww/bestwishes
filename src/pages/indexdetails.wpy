@@ -1,0 +1,186 @@
+<style lang="less" xmlns:wx="">
+  .userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    color: #fff;
+    line-height: 88rpx;
+    margin:170rpx 0;
+  }
+
+  .userinfo-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-nickname {
+    color: #aaa;
+  }
+  /**自定义**/
+  page{
+    padding: 0;
+    margin: 0;
+  }
+  image{
+    padding: 0;margin: 0;
+  }
+  .width-100{
+    width: 100%;
+  }
+  .container{
+       background-color: #000000;
+  }
+  .list_box{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20rpx;
+    .item_box{
+      width: 100%;
+      min-height:250rpx;
+      margin-bottom: 15rpx;
+      font-size: 32rpx;
+      color: #000000;
+      letter-spacing:5rpx;
+      font-weight: bold;
+      box-sizing: border-box;
+    }
+    .item_box .img{
+      width: 100%;
+      height:100%;
+      margin: 40rpx 0;
+    }
+    .item_box image{
+      width: 710rpx;
+      /*height:200rpx;*/
+    }
+    .item_box .text{
+      letter-spacing:5rpx;
+      text-align: center;
+      line-height: 60rpx;
+    }
+    .item_box span{
+      /*animation:myfirst 5s linear 2s infinite alternate;*/
+    }
+
+  }
+  .imgtop image{
+    width: 710rpx;
+    height:200rpx;
+    margin-bottom: 10rpx;
+  }
+
+</style>
+<template>
+  <view class="container" style="background: #000000 url({{dataDetails.bgimgurl}}) repeat">
+    <viem class="list_box">
+      <view class="imgtop"><image  src="{{dataDetails.topimgurl}}" /></view>
+      <repeat for="{{dataDetails.count}}" key="index" index="index" item="item">
+        <view class="item_box">
+          <repeat for="{{item.textarr}}" item="textitem" index="textindex">
+             <view class="text"  style="color: rgba({{dataDetails.colorarr[index][textindex].r}}, {{dataDetails.colorarr[index][textindex].g}}, {{dataDetails.colorarr[index][textindex].b}}, {{dataDetails.colorarr[index][textindex].a}})">{{textitem}}</view>
+          </repeat>
+          <view class="img"><image  src="{{item.imgurl}}" /></view>
+        </view>
+      </repeat>
+    </viem>
+
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class IndexDetails extends wepy.page {
+    config = {
+      navigationBarTitleText: '祝福'
+    }
+    components = {
+    }
+    data = {
+      id: null,
+      dataDetails: null,
+      orderList: []
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+
+    }
+    // 随机生成字体颜色
+    tap() {
+      const colorarr = []
+      this.dataDetails.count.forEach(v => {
+        const textarr = []
+        v.textarr.forEach(t => {
+          const obj = {a: 1, b: 2, g: 3, r: 0}
+          obj.r = Math.floor(Math.random() * 255)
+          obj.g = Math.floor(Math.random() * 255)
+          obj.b = Math.floor(Math.random() * 255)
+          obj.a = Math.floor(Math.random() * 255)
+          textarr.push(obj)
+        })
+        colorarr.push(textarr)
+        // console.log(colorarr)
+      })
+      this.dataDetails.colorarr = colorarr
+    }
+  // 请求数据
+    requestFun () {
+      const that = this
+      that.dataDetails = {
+        'id': 1,
+        'title': '新年祝福',
+        'topimgurl': '../assets/images/flower/twelve.gif',
+        'bgimgurl': '../assets/images/cover/bgfive.gif',
+        'count': [
+          {
+            'text': '新年祝福11111111111，新年祝福4，新年祝福，新年5祝福，新年祝福，新年祝福，新年祝福',
+            'imgurl': '../assets/images/flower/one.gif'
+          },
+          {
+            'text': '新年祝福2222222222，新年祝福4，新年祝福，新年祝福，新年祝福',
+            'imgurl': '../assets/images/flower/nine.gif'
+          },
+          {
+            'text': '新年祝福333333333，新年祝福4，新年祝福，新5年祝福，新年5祝福，新年祝福，新年祝福，新年祝福',
+            'imgurl': '../assets/images/flower/three.gif'
+          }
+        ]
+      }
+      const arr = that.dataDetails['count']
+      arr.forEach(v => {
+        v.textarr = v.text.split('，')
+      })
+      that.dataDetails['count'] = arr
+      console.log(that.dataDetails)
+
+      // wx.request({
+      //   url: 'assets/data/form.json',
+      //   data: {
+      //   },
+      //   header: {
+      //     'content-type': 'application/json' // 默认值
+      //   },
+      //   success (res) {
+      //     console.log('request fail1: ', res)
+      //     that.dataDetails = res['data']
+      //     that.$apply()
+      //   },
+      //   fail (p) {
+      //     console.log('request fail22: ', p)
+      //   }
+      // })
+    }
+    onLoad(option) {
+      this.id = option.id
+      console.log(this.id)
+      this.requestFun()
+      this.tap()
+    }
+  }
+</script>

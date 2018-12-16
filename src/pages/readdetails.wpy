@@ -1,0 +1,129 @@
+<style lang="less" xmlns:wx="">
+  .userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    color: #fff;
+    line-height: 88rpx;
+    margin:170rpx 0;
+  }
+
+  .userinfo-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-nickname {
+    color: #aaa;
+  }
+  /**自定义**/
+  page{
+    padding: 0;
+    margin: 0;
+  }
+  image{
+    padding: 0;margin: 0;
+  }
+  .width-100{
+    width: 100%;
+  }
+  .container{
+
+  }
+  .list_box{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20rpx;
+    .item_box{
+      width: 710rpx;
+      min-height:250rpx;
+      margin-bottom: 15rpx;
+      font-size: 32rpx;
+      color: #000000;
+    }
+    .item_box .image{
+      width: 710rpx;
+      /*height:auto;*/
+      margin: 40rpx 0;
+    }
+    .item_box .text{
+      letter-spacing:5rpx;
+      text-align: center;
+    }
+    .item_box span{
+      /*animation:myfirst 5s linear 2s infinite alternate;*/
+    }
+
+  }
+  .title{
+    font-size: 42rpx;
+  }
+
+</style>
+<template>
+  <view class="container">
+    <viem class="list_box">
+      <view class="title">{{dataDetails.title}}</view>
+      <repeat for="{{dataDetails.count}}" key="index" index="index" item="item">
+        <view class="item_box">
+          <view class="text" >{{item.text}}</view>
+          <image  src="{{item.imgurl}}" class="image" />
+        </view>
+      </repeat>
+    </viem>
+
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class ReadDetails extends wepy.page {
+    config = {
+      navigationBarTitleText: '祝福文字'
+    }
+    components = {
+    }
+    data = {
+      id: null,
+      dataDetails: null,
+      orderList: []
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+
+    }
+    requestFun () {
+      const that = this
+      that.dataDetails = {
+        'id': 1,
+        'title': '养生文字，超实用!养生文字，超实用!养生文字，超实用!',
+        'count': [
+          {
+            'text': '新年祝福11111111111，新年祝福4，新年祝福，新5年祝福，新年5福，新年5祝福，新年5祝福，新年祝5福，新5年祝福，新年5祝福，新年祝福，新年祝福，新年祝福',
+            'imgurl': '../assets/images/flower/eight.gif'
+          },
+          {
+            'text': '新年祝福2222222222，新年祝福4，新年祝福，新5年祝福，新年5福，新年5祝福，新年5祝福，新年祝5福，新5年祝福，新年5祝福，新年祝福，新年祝福，新年祝福',
+            'imgurl': '../assets/images/flower/eight.gif'
+          },
+          {
+            'text': '新年祝福333333333，新年祝福4，新年祝福，新5年祝福，新年5福，新年5祝福，新年5祝福，新年祝5福，新5年祝福，新年5祝福，新年祝福，新年祝福，新年祝福',
+            'imgurl': '../assets/images/flower/eight.gif'
+          }
+        ]
+      }
+    }
+    onLoad(option) {
+      this.id = option.id
+      console.log(this.id)
+      this.requestFun()
+    }
+  }
+</script>
